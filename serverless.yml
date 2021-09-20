@@ -15,3 +15,17 @@ functions:
       - http:
           path: get_rate
           method: GET
+
+  send_data:
+    handler: handler.send_data
+    events:
+      - http:
+          path: send_data
+          method: GET
+          
+  receive_data:
+    handler: handler.receive_data
+    events:
+      - http:
+          path: receive_data
+          method: GET
