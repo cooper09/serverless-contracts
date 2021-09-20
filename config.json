@@ -1,0 +1,20 @@
+{
+    "coinbase": [
+        "BTC",
+        "ETH",
+        "ALGO",
+        "ADA"
+    ],
+    "binance": [
+        "BTC",
+        "ETH",
+        "ALGO",
+        "ADA"
+    ],
+    "uniswap": [
+        "BTC",
+        "ETH",
+        "ALGO",
+        "ADA"
+    ]
+}

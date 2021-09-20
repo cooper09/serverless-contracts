@@ -9,6 +9,8 @@ provider:
   lambdaHashingVersion: "20201221"
 
 functions:
+  get_all_rates:
+    handler: handler.get_all_rates
   get_rate:
     handler: handler.get_rate
     events:
@@ -22,10 +24,11 @@ functions:
       - http:
           path: send_data
           method: GET
-          
+
   receive_data:
     handler: handler.receive_data
     events:
       - http:
           path: receive_data
           method: GET
+  
