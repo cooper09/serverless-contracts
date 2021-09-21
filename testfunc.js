@@ -1,6 +1,17 @@
 const axios = require('axios');
+const Web3 = require('web3');
 
-const url = 'https://sonyainc.net/json/test.json';
+const COIN = process.env.COIN || "dai";
+const EXCHANGE_GET_RATE_CONTRACT = process.env.EXCHANGE_GET_RATE_CONTRACT
+const UNISWAP_GET_RATE_WALLET = process.env.UNISWAP_GET_RATE_WALLET
+const UNISWAP_GET_RATE_ABI = require(`./ABI/uniswap_get_rate_${COIN}.json`)
+
+const url = `${process.env.RPC_URL}/${process.env.API_KEY}`
+
+const web3 = new Web3(url)
+
+//const url = 'https://sonyainc.net/json/test.json';
+
 
 const fetchAllRates = async config => {
     console.log(`config: ${config}`)
@@ -16,13 +27,25 @@ const fetchAllRates = async config => {
             resolve(results)
         })
         
-    })    
+    }) //end promise   
 }
 
 const makeDecision = async rates => {
     return "decision"
 }
 
+const fetchRate = async () => {
+    var priceContract = new web3.eth.Contract(UNISWAP_GET_RATE_ABI, EXCHANGE_GET_RATE_CONTRACT)
+    return new Promise((resolve,reject) => {
+        priceContract.methods.getUniswapBuyPrice().call({'from': UNISWAP_GET_RATE_WALLET}, (error, data) => {
+            if(error != null){ reject(error) }
+            resolve(data)
+        })
+    })
+}//end fetchRate
+
+
+/*
 const fetchRate = async (xchg, token) => {
     //console.log("fetchRate: ", xchg )
     return new Promise((resolve, reject) => {
@@ -37,7 +60,7 @@ const fetchRate = async (xchg, token) => {
             })
     })//end Promise
 
-}//end fetchRate
+}//end fetchRate  */
 
 const send = async (amount, toAddress) => {
     // 

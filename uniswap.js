@@ -18,7 +18,7 @@ const fetchRate = async () => {
             resolve(data)
         })
     })
-}
+}//end fetchRate
 
 const send = async (amount, toAddress) => {
     // 
