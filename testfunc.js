@@ -4,7 +4,8 @@ const Web3 = require('web3');
 const COIN = process.env.COIN || "dai";
 const EXCHANGE_GET_RATE_CONTRACT = process.env.EXCHANGE_GET_RATE_CONTRACT
 const UNISWAP_GET_RATE_WALLET = process.env.UNISWAP_GET_RATE_WALLET
-const UNISWAP_GET_RATE_ABI = require(`./ABI/uniswap_get_rate_${COIN}.json`)
+//const UNISWAP_GET_RATE_ABI = require(`./ABI/uniswap_get_rate_${COIN}.json`)
+const UNISWAP_GET_RATE_ABI = require(`./ABI/uniswap_get_rate_dai.json`)
 
 const url = `${process.env.RPC_URL}/${process.env.API_KEY}`
 

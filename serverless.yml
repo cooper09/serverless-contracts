@@ -16,7 +16,7 @@ functions:
       RPC_URL: https://mainnet.infura.io/v3
       API_KEY: 4cd98623d90d401ca984c02080c6bf72
       UNISWAP_GET_RATE_WALLET: '0xC0DcE374F9aC0607B432Be0b3439c5Dc84c8f985'
-      EXCHANGE_GET_RATE_CONTRACT: '0x1603557c3f7197df2e'
+      EXCHANGE_GET_RATE_CONTRACT: '0x1603557c3f7197df2ecded659ad04fa72b1e1114'
 
   get_rate:
     handler: handler.get_rate
